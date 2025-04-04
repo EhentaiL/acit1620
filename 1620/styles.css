@@ -1,0 +1,174 @@
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75vh;
+    width: 100vw;
+    position: relative;
+}
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,1fr);
+    height: 50vh;
+    width: 50%;
+    margin: 0 auto;
+    position: relative;
+    grid-gap: 5px;
+    border: 1px solid black;
+    background: #ecffa5;
+   
+    
+}
+.box {
+    color: red;
+    border: 0.5px solid greenyellow;
+    background-image: url("grass.png");
+    background-position: center;
+    background-size: cover;
+}
+#selected {
+    background-image: url("mole.png");
+    background-position: center;
+    background-size: cover;
+}
+
+.selected-ain {
+    animation: fade-in 1s linear;
+    animation-iteration-count: infinite;
+}
+
+.selected-aout {
+    animation: fade-out 1s linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes fade-in {
+    0% { opacity: 0; }
+    20% { opacity: 1; }
+}
+
+@keyframes fade-out {
+    80% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+input {
+    width: 75%;
+    padding: 1%;
+    margin: 1%;
+}
+#wrong {
+    background-color: red;
+    transition: background-color 0.25s linear;
+}
+
+#menu-outer,#giant-outer{
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    pointer-events: none;
+    z-index: 1;
+}
+#giant-outer {
+
+    z-index: 0;
+}
+
+.menu {
+    background-color: red;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    margin: 0 auto;
+    transform: translate(-50%, -50%);
+}
+
+#config {
+    background-color: red;  /* 确保红色背景 */
+    opacity: 1;  /* 完全不透明 */
+    padding: 20px;  /* 添加内边距 */
+    border-radius: 10px;  /* 圆角效果 */
+    margin-top: -250px; 
+    width: 40%
+}
+
+#pause {
+    height: 75%;
+    width: 75%;
+    opacity: 0;
+    z-index: 2;
+    pointer-events: none;
+}
+
+body {
+    overflow: hidden;
+}
+.shake {
+    /* Start the shake animation and make the animation last for 0.5 seconds */
+
+    overflow:hidden;
+    }
+
+.shake-animation {
+    /* Start the shake animation and make the animation last for 0.5 seconds */
+    animation: shake 1s;
+    
+    /* When the animation is finished, start again */
+    animation-iteration-count: infinite;
+    animation-play-state: running;
+
+}
+    
+@keyframes shake {
+    0% { transform: translate(1px, 1px); opacity: 1; }
+    10% { transform: translate(-1px, -2px); opacity: 0.8; }
+    20% { transform: translate(-3px, 0px); opacity: 0.6; }
+    30% { transform: translate(3px, 2px); opacity: 0; }
+    40% { transform: translate(1px, -1px); opacity: 0.8; }
+    50% { transform: translate(-1px, 2px); opacity: 0.6; }
+    60% { transform: translate(-3px, 1px); opacity: 1; }
+    70% { transform: translate(3px, 1px); opacity: 0.8; }
+    80% { transform: translate(-1px, -1px); opacity: 0.6; }
+    90% { transform: translate(1px, 2px); opacity: 0; }
+    100% { transform: translate(1px, -2px); opacity: 0.8; }
+}
+
+@keyframes flash {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }    
+}
+
+#giant {
+    background-image: url("mole.png");
+    background-position: center;
+    z-index: 2;
+    position: absolute;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    top: -100vh;  
+    left: 100vw;
+    margin: 0 auto;
+    pointer-events: initial;
+    transition: top 0.5s ease, left 0.5s ease;
+}
+
+
+#giant:active {
+    animation: giant-shake 0.2s linear;
+}
+
+@keyframes giant-shake {
+    0% { transform: translate(0, 0); }
+    20% { transform: translate(-5px, 5px); }
+    40% { transform: translate(5px, -5px); }
+    60% { transform: translate(-5px, -5px); }
+    80% { transform: translate(5px, 5px); }
+    100% { transform: translate(0, 0); }
+}
